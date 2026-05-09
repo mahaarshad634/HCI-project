@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FASHION STOCK LOVE</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background-color: #f9f9f9;
+      color: #333;
+      padding: 20px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      max-width: 1200px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .image-section {
+      flex: 1;
+      min-width: 300px;
+      animation: fadeIn 2s ease;
+    }
+
+    .image-section img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .details-section {
+      flex: 1;
+      min-width: 300px;
+      animation: fadeIn 2s ease 0.3s;
+    }
+
+    .details-section h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 20px;
+      color: #c00;
+      margin-bottom: 15px;
+    }
+
+    .desc {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-top: 15px;
+    }
+
+    select, input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .stock {
+      color: green;
+      margin-top: 5px;
+    }
+
+    .add-to-cart {
+      margin-top: 25px;
+      background-color: #000;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .add-to-cart:hover {
+      background-color: #333;
+    }
+  </style>
+</head>
+<body class="font-sans">
+
+  <!-- Top Nav -->
+  <div class="flex items-center justify-between px-8 py-4 border-b">
+    <a href="home.html">
+      <h1 class="text-3xl font-serif tracking-wide hover:text-rose-600 transition">FASHION STOCK</h1>
+    </a>
+    <div class="relative w-1/2">
+      <input 
+        type="text" 
+        id="searchInput"
+        placeholder="Search for products" 
+        class="w-full px-4 py-2 border rounded-full outline-none"
+        autocomplete="off"
+        oninput="showSuggestions(this.value)"
+        onkeydown="handleKeyDown(event)"
+      />
+      <ul 
+        id="suggestionList" 
+        class="absolute left-0 right-0 bg-white border mt-1 rounded-md shadow-lg z-50 hidden max-h-60 overflow-y-auto"
+      ></ul>
+    </div>
+    </div>
+
+  <!-- Main Nav -->
+  <nav class="flex justify-center space-x-8 py-4 text-sm font-semibold uppercase">
+    <a href="sale.html" class="text-rose-600">Sale</a>
+    <a href="newin.html" class="text-gray-800 hover:text-rose-600">New In</a>
+    <a href="desifit.html" class="text-gray-800 hover:text-rose-600">Riwayati</a>
+    <a href="shirts.html" class="text-gray-800 hover:text-rose-600">Kurtas</a>
+    <a href="stylin.html" class="text-gray-800 hover:text-rose-600">Sarees</a>
+    <a href="fashion.html" class="text-gray-800 hover:text-rose-600">Froks</a>
+  </nav>
+
+  <div class="container">
+    <div class="image-section">
+      <img src="k1.jpg" alt="Rinna Outfit">
+    </div>
+    <div class="details-section">
+      <h1>Rinna</h1>
+      <div class="price">PKR 15,721 <span style="text-decoration: line-through; color: #999; font-size: 14px;">PKR 18,495</span></div>
+      <div class="desc">
+        This elegant 3-piece suit includes a shirt made of shoocha silk, paired with trousers and a matching dupatta. Featuring intricate embroidery on sleeves and a flowy silhouette, it's perfect for festive occasions.
+      </div>
+
+      <label for="color">Color</label>
+      <select id="color">
+        <option>Mint Green</option>
+        <option>Peach</option>
+        <option>Black</option>
+      </select>
+
+      <label for="size">Size</label>
+      <select id="size">
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+      </select>
+
+      <label for="quantity">Quantity</label>
+      <input type="number" id="quantity" value="1" min="1">
+      <div class="stock">In Stock</div>
+
+      <button class="add-to-cart">Add to Cart</button>
+      <script>
+
+document.querySelector(".add-to-cart").addEventListener("click", addToCart);
+      </script>
+     
+
+    </div>
+  </div>
+
+  <script>
+    function addToCart() {
+      const cartItem = {
+        title: "Rinna",
+        price: 15721,
+        originalPrice: 18495,
+        image: "k1.jpg",
+        size: document.getElementById("size").value,
+        color: document.getElementById("color").value,
+        quantity: parseInt(document.getElementById("quantity").value)
+      };
+  
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push(cartItem);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      window.location.href = "orders.html";
+    }
+  
+    document.querySelector(".add-to-cart").addEventListener("click", addToCart);
+  </script>
+  
+
+  <!-- Footer -->
+ <footer class="bg-gray-100 px-6 py-12 mt-12 text-sm text-gray-700">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+  
+      <!-- Contact Us -->
+      <div>
+        <h3 class="font-semibold text-lg mb-4">CONTACT US</h3>
+        <div class="flex items-center space-x-2 mb-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m8 0V8m0 4v4m0-4H8m0 0V8m0 4v4" />
+          </svg>
+          <a href="mailto:info@krosskulture.com">info@fashionstock.com</a>
+        </div>
+        <div class="flex items-center space-x-2 mb-4">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a2 2 0 011.69 1.03l1.04 2.07A2 2 0 0012 7h8a2 2 0 012 2v10a2 2 0 01-2 2H3a2 2 0 01-2-2V7a2 2 0 012-2z" />
+          </svg>
+          <span>+92 321 8637515</span>
+        </div>
+        <div class="flex space-x-4">
+          <a href="#"><i class="fab fa-facebook-f text-xl"></i></a>
+          <a href="#"><i class="fab fa-instagram text-xl"></i></a>
+          <a href="#"><i class="fab fa-youtube text-xl"></i></a>
+        </div>
+      </div>
+  
+      <!-- Customer Care -->
+      <div>
+        <h3 class="font-semibold text-lg mb-4">CUSTOMER CARE</h3>
+        <ul class="space-y-2">
+          <li><a href="size.html">Size Guide</a></li>
+          <li><a href="#">Shipping & Exchange</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Store Locator</a></li>
+          <li><a href="faqs.html">FAQ's</a></li>
+        </ul>
+      </div>
+  
+      <!-- Information -->
+      <div>
+        <h3 class="font-semibold text-lg mb-4">Information</h3>
+        <ul class="space-y-2">
+          <li><a href="contactus.html">Contact Us</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="orders.html">Your Order</a></li>
+        </ul>
+      </div>
+  
+      <!-- Newsletter Signup -->
+      <div>
+        <h3 class="font-semibold text-lg mb-4">Newsletter Signup</h3>
+        <p class="mb-4">Subscribe to our newsletter to stay up to date on fashionstock news and special events.</p>
+        <input type="email" placeholder="Your email address" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none" />
+      </div>
+  
+    </div>
+  </footer>
+
+
+
+  <script>
+    // Search functionality with suggestions
+   const searchInput = document.getElementById("searchInput");
+   const suggestionList = document.getElementById("suggestionList");
+   
+   const historySearches = [
+     "sale product", "new products", "sarees in 3000 range",
+     "froks", "kurtas", "shalwar qameez"
+   ];
+   
+   function showSuggestions(value) {
+     const query = value.toLowerCase().trim();
+     suggestionList.innerHTML = '';
+   
+     if (!query) {
+       suggestionList.classList.add('hidden');
+       return;
+     }
+   
+     const filtered = historySearches.filter(item => item.includes(query));
+     if (filtered.length > 0) {
+       filtered.forEach(suggestion => {
+         const li = document.createElement('li');
+         li.textContent = suggestion;
+         li.className = 'px-4 py-2 hover:bg-gray-100 cursor-pointer';
+         li.onclick = () => {
+           searchInput.value = suggestion;
+           suggestionList.classList.add('hidden');
+           performSearch(suggestion);
+         };
+         suggestionList.appendChild(li);
+       });
+       suggestionList.classList.remove('hidden');
+     } else {
+       suggestionList.classList.add('hidden');
+     }
+   }
+   
+   function handleKeyDown(e) {
+     if (e.key === 'Enter') {
+       e.preventDefault();
+       performSearch(searchInput.value.trim().toLowerCase());
+     }
+   }
+   
+   function performSearch(query) {
+     if (query.includes("sale")) {
+       window.location.href = "sale.html";
+     } else if (query.includes("new")) {
+       window.location.href = "newin.html";
+     } else if (query.includes("sarees") && query.includes("3000")) {
+       window.location.href = "stylin.html";
+     } else if (query.includes("froks")) {
+       window.location.href = "fashion.html";
+     } else if (query.includes("kurtas")) {
+       window.location.href = "shirts.html";
+     } else if (query.includes("shalwar") || query.includes("qameez")) {
+       window.location.href = "desifit.html";
+     } else {
+       alert("No matching results found.");
+     }
+   }
+   
+   document.addEventListener("click", function (e) {
+     if (!e.target.closest("#searchInput")) {
+       suggestionList.classList.add("hidden");
+     }
+   });
+   
+   </script>
+   
+   
+   </body>
+   </html>
+   

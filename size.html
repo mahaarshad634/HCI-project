@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FASHION STOCK LOVE</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #fff;
+      color: #000;
+    }
+    header {
+      padding: 20px;
+      border-bottom: 1px solid #ccc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-size: 24px;
+      margin: 0;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+    }
+    table {
+      width: 90%;
+      margin: 40px auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+    caption {
+      caption-side: top;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body class="font-sans">
+
+  <div class="flex items-center justify-between px-8 py-4 border-b">
+    <a href="home.html">
+      <h1 class="text-3xl font-serif tracking-wide hover:text-rose-600 transition">FASHION STOCK</h1>
+    </a>
+    <div class="relative w-1/2">
+      <input 
+        type="text" 
+        id="searchInput"
+        placeholder="Search for products" 
+        class="w-full px-4 py-2 border rounded-full outline-none"
+        autocomplete="off"
+        oninput="showSuggestions(this.value)"
+        onkeydown="handleKeyDown(event)"
+      />
+      <ul 
+        id="suggestionList" 
+        class="absolute left-0 right-0 bg-white border mt-1 rounded-md shadow-lg z-50 hidden max-h-60 overflow-y-auto"
+      ></ul>
+    </div>
+    </div>
+
+  <!-- Main Nav -->
+  <nav class="flex justify-center space-x-8 py-4 text-sm font-semibold uppercase">
+    <a href="sale.html" class="text-rose-600">Sale</a>
+    <a href="newin.html" class="text-gray-800 hover:text-rose-600">New In</a>
+    <a href="desifit.html" class="text-gray-800 hover:text-rose-600">Riwayati</a>
+    <a href="shirts.html" class="text-gray-800 hover:text-rose-600">Kurtas</a>
+    <a href="stylin.html" class="text-gray-800 hover:text-rose-600">Sarees</a>
+    <a href="fashion.html" class="text-gray-800 hover:text-rose-600">Froks</a>
+  </nav>
+
+  <table>
+    <caption>Size Guide - Shirt</caption>
+    <thead>
+      <tr>
+        <th>Size</th>
+        <th>Length</th>
+        <th>Chest</th>
+        <th>Hem</th>
+        <th>Arm Hole</th>
+        <th>Shoulder</th>
+        <th>Sleeve Length</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>XSM</td><td>36</td><td>18</td><td>24</td><td>8.5</td><td>14</td><td>21</td></tr>
+      <tr><td>SML</td><td>36</td><td>19</td><td>26</td><td>9</td><td>14.5</td><td>21</td></tr>
+      <tr><td>MED</td><td>38</td><td>20.5</td><td>28</td><td>9.75</td><td>15</td><td>21.5</td></tr>
+      <tr><td>LRG</td><td>38</td><td>22.5</td><td>30</td><td>11</td><td>15.5</td><td>22</td></tr>
+      <tr><td>XLR</td><td>40</td><td>24.5</td><td>32</td><td>11.75</td><td>16</td><td>23</td></tr>
+    </tbody>
+  </table>
+  
+  <table>
+    <caption>Trouser Specs</caption>
+    <thead>
+      <tr>
+        <th>Size</th>
+        <th>Trouser Back Stretch</th>
+        <th>Trouser Front Relaxed</th>
+        <th>Trouser Length</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>XSM</td><td>13</td><td>9</td><td>36</td></tr>
+      <tr><td>SML</td><td>15</td><td>9</td><td>37</td></tr>
+      <tr><td>MED</td><td>17</td><td>11</td><td>38</td></tr>
+      <tr><td>LRG</td><td>20</td><td>13</td><td>39</td></tr>
+      <tr><td>XLR</td><td>22</td><td>13</td><td>40</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Footer -->
+ <footer class="bg-gray-100 px-6 py-12 mt-12 text-sm text-gray-700">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+  
+      <!-- Contact Us -->
+      <div>
+        <h3 class="font-semibold text-lg mb-4">CONTACT US</h3>
+        <div class="flex items-center space-x-2 mb-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m8 0V8m0 4v4m0-4H8m0 0V8m0 4v4" />
+          </svg>
+          <a href="mailto:info@krosskulture.com">info@fashionstock.com</a>
+        </div>
+        <div class="flex items-center space-x-2 mb-4">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a2 2 0 011.69 1.03l1.04 2.07A2 2 0 0012 7h8a2 2 0 012 2v10a2 2 0 01-2 2H3a2 2 0 01-2-2V7a2 2 0 012-2z" />
+          </svg>
+          <span>+92 321 8637515</span>
+        </div>
+        <div class="flex space-x-4">
+          <a href="#"><i class="fab fa-facebook-f text-xl"></i></a>
+          <a href="#"><i class="fab fa-instagram text-xl"></i></a>
+          <a href="#"><i class="fab fa-youtube text-xl"></i></a>
+        </div>
+      </div>
+  
+      <!-- Customer Care -->
+      <div>
+        <h3 class="font-semibold text-lg mb-4">CUSTOMER CARE</h3>
+        <ul class="space-y-2">
+          <li><a href="size.html">Size Guide</a></li>
+          <li><a href="#">Shipping & Exchange</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Store Locator</a></li>
+          <li><a href="faqs.html">FAQ's</a></li>
+        </ul>
+      </div>
+  
+      <!-- Information -->
+      <div>
+        <h3 class="font-semibold text-lg mb-4">Information</h3>
+        <ul class="space-y-2">
+          <li><a href="contactus.html">Contact Us</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="orders.html">Your Order</a></li>
+        </ul>
+      </div>
+  
+      <!-- Newsletter Signup -->
+      <div>
+        <h3 class="font-semibold text-lg mb-4">Newsletter Signup</h3>
+        <p class="mb-4">Subscribe to our newsletter to stay up to date on fashionstock news and special events.</p>
+        <input type="email" placeholder="Your email address" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none" />
+      </div>
+  
+    </div>
+  </footer>
+  <script>
+    // Search functionality with suggestions
+   const searchInput = document.getElementById("searchInput");
+   const suggestionList = document.getElementById("suggestionList");
+   
+   const historySearches = [
+     "sale product", "new products", "sarees in 3000 range",
+     "froks", "kurtas", "shalwar qameez"
+   ];
+   
+   function showSuggestions(value) {
+     const query = value.toLowerCase().trim();
+     suggestionList.innerHTML = '';
+   
+     if (!query) {
+       suggestionList.classList.add('hidden');
+       return;
+     }
+   
+     const filtered = historySearches.filter(item => item.includes(query));
+     if (filtered.length > 0) {
+       filtered.forEach(suggestion => {
+         const li = document.createElement('li');
+         li.textContent = suggestion;
+         li.className = 'px-4 py-2 hover:bg-gray-100 cursor-pointer';
+         li.onclick = () => {
+           searchInput.value = suggestion;
+           suggestionList.classList.add('hidden');
+           performSearch(suggestion);
+         };
+         suggestionList.appendChild(li);
+       });
+       suggestionList.classList.remove('hidden');
+     } else {
+       suggestionList.classList.add('hidden');
+     }
+   }
+   
+   function handleKeyDown(e) {
+     if (e.key === 'Enter') {
+       e.preventDefault();
+       performSearch(searchInput.value.trim().toLowerCase());
+     }
+   }
+   
+   function performSearch(query) {
+     if (query.includes("sale")) {
+       window.location.href = "sale.html";
+     } else if (query.includes("new")) {
+       window.location.href = "newin.html";
+     } else if (query.includes("sarees") && query.includes("3000")) {
+       window.location.href = "stylin.html";
+     } else if (query.includes("froks")) {
+       window.location.href = "fashion.html";
+     } else if (query.includes("kurtas")) {
+       window.location.href = "shirts.html";
+     } else if (query.includes("shalwar") || query.includes("qameez")) {
+       window.location.href = "desifit.html";
+     } else {
+       alert("No matching results found.");
+     }
+   }
+   
+   document.addEventListener("click", function (e) {
+     if (!e.target.closest("#searchInput")) {
+       suggestionList.classList.add("hidden");
+     }
+   });
+   
+   </script>
+   
+   
+   </body>
+   </html>
+   
